@@ -1,0 +1,31 @@
+
+  <div class="h-16 w-screen flex justify-start items-center gap-8 bg-[#242124] border-2 border-black text-1xl"> 
+
+   <a class=" text-[#FFFADA] ml-4 text-2xl font-bold" href="/"> airbnb </a>
+
+<% if (isLoggedIn){ %> 
+   <a class=" <%= pageUrl === 'home' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %> text-white ml-2" href="/homes"> Home-List </a>
+
+   <a class=" <%= pageUrl === 'bookings' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>  text-white " href="/bookings"> Bookings 
+   </a>
+
+   <a class=" <%= pageUrl === 'favourites' ?'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>  text-white " href="/favourites"> Favourites </a>
+
+   <a class = "text-white <%= pageUrl === 'hostHome' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>" href="/host/host-home-list" > Host-Homes</a>
+
+   <a class = "text-white <%= pageUrl === 'addHome' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>" href="/host/add-home" > Add a home </a> 
+<% } %>
+
+<% if(!isLoggedIn) { %>
+  <a class = "text-white hover:bg-[#333333] rounded-sm p-1" href="/login" > Login </a>
+  <a class = "text-white hover:bg-[#333333] rounded-sm p-1" href="/signup" > Signup </a>
+
+
+<% } else { %>
+   <form action= "/logout" method="POST">
+     <button type="submit" class = "text-white hover:bg-[#333333] rounded-sm p-1"> Logout </button>
+   </form>
+<% } %>
+   
+
+  </div>

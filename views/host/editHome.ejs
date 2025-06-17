@@ -1,0 +1,40 @@
+<%- include('../partials/head') %>
+
+<body style="background-color: #121212;">
+  <%- include('../partials/navbar') %>
+
+ <h2 class="text-2xl ml-2 font-bold text-center text-white m-4"> <%=editing ? 'Edit': 'Add'%> home details </h2>
+ 
+<form action= "/host/<%= editing ? 'edit-home' : 'add-home'%>" method="POST" class="mt-4 flex justify-center">
+
+    <input type="hidden" name="_id" value="<%=editing ? home._id : ''%>">
+
+   <div class="flex flex-col justify-center items-center gap-2 bg-[#46494c] p-6 rounded-2xl shadow-lg max-w-2xl w-full"> 
+    
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="text" name="name" placeholder="Name of home" required 
+     value="<%=editing ? home.name: ''%>"> 
+
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="number" name="price" placeholder="Price per night" required
+     value="<%=editing? home.price: ''%>"> 
+
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="text" name="location" placeholder="Location" required
+    value="<%=editing? home.location: ''%>">
+
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="text" name="rating" placeholder="Rating" required
+    value="<%=editing? home.rating: ''%>"> 
+
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="text" name="imageUrl" placeholder="Image url" required
+     value="<%=editing? home.imageUrl: ''%>"> 
+
+    <textarea class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" name="description" placeholder="Describe your home" 
+     required><%=editing? home.description: ''%></textarea>
+
+    <input class="text-center bg-[#151E3D] text-white rounded text-1xl border-2 p-2 mt-2 w-full" type="submit" value = "<%=editing? "Update": "Submit"%>">
+     
+   </div>
+</form>
+    <div class="flex justify-center mt-2" >
+    </div>
+
+</body>
+</html>

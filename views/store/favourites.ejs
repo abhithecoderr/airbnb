@@ -1,0 +1,37 @@
+<%- include('../partials/head') %>
+<body style="background-color: #121212;">
+  <%-include('../partials/navbar.ejs')%>
+  
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 m-10">
+    <% if (favHomes && favHomes.length > 0) { %>
+      <% favHomes.forEach((home) => { %>
+        <div class="bg-[#1F1F1F] text-white shadow-md overflow-hidden flex flex-col">
+          <img src="<%=home.imageUrl%>" alt="<%= home.name %>" class="w-full h-48 object-cover">
+          <div class="p-2 ml-2 mt-2">
+            <h2 class="text-xl font-semibold mb-2"><%= home.name %></h2>
+            <ul class="list-none pl-0">
+              <li class=" mb-1">₹ <%= home.price %> per night</li>
+              <li class=" mb-1"> <span class="font-medium"> Location: <%= home.location %> </span> </li>
+              <li class="mb-1"> <%= home.rating %> ⭐ </li>
+              <div class="flex justify-end">
+                <button class="bg-[#234F1E] p-2 rounded-md ml-2 mb-2"><a href="/homes/<%=home._id%>"> Details </a> </button>
+                
+                <form action="/favourites/delete/<%=home._id%>" method="POST">
+                  <button class="bg-[#60100B] float-right p-2 rounded-md ml-2 mb-2"> Remove from favourites </button>
+                </form>
+               
+              </div>
+            </ul>
+          </div>
+        
+          
+      
+        </div>
+      <% }); %>
+    <% } else { %>
+     <p class="p-4 text-gray-700">No homes registered yet.</p>
+    <% } %>
+  </div>
+</body>
+</html>

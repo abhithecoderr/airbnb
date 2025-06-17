@@ -1,0 +1,37 @@
+<%- include('../partials/head') %>
+
+<body style="background-color: #121212;">
+  <%- include('../partials/navbar') %>
+
+ <h2 class="text-2xl ml-2 font-bold text-center text-white m-4"> Login </h2>
+ 
+ <form action= "/signup" method="POST" class="mt-4 flex justify-center">
+
+   <div class="flex flex-col justify-center items-center gap-2 bg-[#46494c] p-6 rounded-2xl shadow-lg max-w-2xl w-full"> 
+    
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="text" name="firstName" placeholder=" First name" required> 
+
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="text" name="kastName" placeholder="Last name"> 
+
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="email" name="email" placeholder=" Enter your email id" required> 
+
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="password" name="password" placeholder="Enter your password" required> 
+
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="password" name="confirmPassword" placeholder="Confirm your password" required> 
+
+    <div class= "flex space-x-4 justify-start w-full mb-2 mt-2">
+      <p class="mr-4 font-bold text-gray-300"> User Type: </p>
+      <label class="flex items-center ml-4"><input type="radio" name="userType" value="guest"> <span> Guest </span></label>
+      <label class="flex items-center ml-4"><input type="radio" name="userType" value="host"> <span> Host </span></label>
+    </div>
+
+    <div class="w-full flex justify-start">
+      <label><input type="checkbox" name="termsAccepted"> <span> I accept the terms and conditions </span></label>
+    </div>
+
+    <input class="text-center bg-[#151E3D] text-white rounded text-1xl border-2 p-2 mt-2 w-full" type="submit" value = "Register">
+     
+    </div>
+  </form>
+</body>
+</html>
