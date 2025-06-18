@@ -6,9 +6,6 @@
 <% if (isLoggedIn){ %> 
    <a class=" <%= pageUrl === 'home' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %> text-white ml-2" href="/homes"> Home-List </a>
 
-   <a class=" <%= pageUrl === 'bookings' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>  text-white " href="/bookings"> Bookings 
-   </a>
-
    <a class=" <%= pageUrl === 'favourites' ?'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>  text-white " href="/favourites"> Favourites </a>
 
    <a class = "text-white <%= pageUrl === 'hostHome' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>" href="/host/host-home-list" > Host-Homes</a>
