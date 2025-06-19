@@ -60,7 +60,7 @@ app.use("/host", hostRouter);
 app.use(authRouter);
 app.use(errorController.error404);
 
-const PORT= 3002;
+const PORT= 3000;
 
 mongoose.connect("mongodb+srv://root:rootA2@cluster0.lexqax8.mongodb.net/airbnb?retryWrites=true&w=majority&appName=Cluster0").then(()=> {
    app.listen(PORT, ()=>{
