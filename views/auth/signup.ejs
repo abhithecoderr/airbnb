@@ -35,8 +35,8 @@
 
     <div class= "flex space-x-4 justify-start w-full mb-2 mt-2">
       <p class="mr-4 font-bold text-gray-300"> User Type: </p>
-      <label class="flex items-center ml-4"><input type="radio" name="userType" value="guest" checked="<%=oldInput.userType === 'guest'%>"> <span> Guest </span></label>
-      <label class="flex items-center ml-4"><input type="radio" name="userType" value="host" checked="<%=oldInput.userType === 'host'%>"> <span> Host </span></label>
+      <label class="flex items-center ml-4"><input type="radio" name="userType" value="guest" <%= oldInput.userType === 'guest' ? 'checked' : '' %>> <span> Guest </span></label>
+      <label class="flex items-center ml-4"><input type="radio" name="userType" value="host" <%= oldInput.userType === 'host' ? 'checked' : '' %>> <span> Host </span></label>
     </div>
 
     <div class="w-full flex justify-start">
