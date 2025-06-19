@@ -1,6 +1,7 @@
 const {check, validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user.js');
+const { ResultWithContextImpl } = require('express-validator/lib/chain/context-runner-impl.js');
 
 exports.getSignup = (req,res,next) => {
   res.render('auth/signup', 
@@ -100,11 +101,34 @@ exports.postSignup = [
 ]
 
 exports.getLogin = (req,res,next) => {
-  res.render('auth/login', {pageTitle: 'login', pageUrl: 'login page', isLoggedIn: req.isLoggedIn});
+  res.render('auth/login', {pageTitle: 'login', pageUrl: 'login page', isLoggedIn: req.isLoggedIn, errors: [], oldInput: ''});
 }
 
-exports.postLogin = (req,res,next) => {
+exports.postLogin = async (req,res,next) => {
+  const {email, password} = req.body;
+  const user = await User.findOne({email});
+
+  if(!user) {
+    return res.status(400).render('auth/login', {
+        pageTitle: "Log in",
+        isLoggedIn: false,
+        errors: ['User not found'],
+        oldInput: {email}
+  })}
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if(!isMatch) {
+     return res.status(400).render('auth/login', {
+        pageTitle: "Log in",
+        isLoggedIn: false,
+        errors: ['Invalid password'],
+        oldInput: {email}
+  })
+  }
   req.session.isLoggedIn = true;
+  req.session.user = user;
+  await req.session.save();
   res.redirect("/");
 }
 

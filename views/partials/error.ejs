@@ -1,0 +1,8 @@
+  <% if (errors.length>0) { %>
+    <div class="bg-red-100 border border-red-400 text-red-500 w-full p-2 mb-2">
+      <% errors.forEach(err=>{ %>
+        <li> <%=err%></li>
+     <% }) %>
+    </div>
+  
+  <% } %>

@@ -8,8 +8,10 @@
  <form action= "/login" method="POST" class="mt-4 flex justify-center">
 
    <div class="flex flex-col justify-center items-center gap-2 bg-[#46494c] p-6 rounded-2xl shadow-lg max-w-2xl w-full"> 
+
+   <%- include('../partials/error') %>
     
-    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="email" name="email" placeholder=" Enter your email id" required> 
+    <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="email" name="email" placeholder=" Enter your email id" value = "<%=oldInput.email ? oldInput.email: '' %>" required> 
 
     <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="password" name="password" placeholder="Enter your password" required> 
 
