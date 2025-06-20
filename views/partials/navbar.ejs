@@ -3,14 +3,18 @@
 
    <a class=" text-[#FFFADA] ml-4 text-2xl font-bold" href="/"> airbnb </a>
 
-<% if (isLoggedIn){ %> 
+<% if (isLoggedIn){ %>
+  
+  <% if (user && user.userType === 'guest') { %>
    <a class=" <%= pageUrl === 'home' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %> text-white ml-2" href="/homes"> Home-List </a>
 
    <a class=" <%= pageUrl === 'favourites' ?'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>  text-white " href="/favourites"> Favourites </a>
 
+   <% } else { %>
    <a class = "text-white <%= pageUrl === 'hostHome' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>" href="/host/host-home-list" > Host-Homes</a>
 
    <a class = "text-white <%= pageUrl === 'addHome' ? 'bg-[#2A2A2A] p-1 rounded-sm' : 'hover:bg-[#333333] rounded-sm p-1' %>" href="/host/add-home" > Add a home </a> 
+   <% } %>
 <% } %>
 
 <% if(!isLoggedIn) { %>
@@ -24,5 +28,4 @@
    </form>
 <% } %>
    
-
-  </div>
+ </div>
