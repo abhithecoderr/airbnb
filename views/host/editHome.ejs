@@ -23,6 +23,12 @@
     <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="text" name="rating" placeholder="Rating" required
     value="<%=editing? home.rating: ''%>"> 
 
+    <% if (editing) { %>
+      <div class="w-full mt-4"> 
+        <img class="w-32" src= "/<%=home.imageUrl%>"> </div>
+       
+   <% } %>
+
     <input class="text-1xl border border-gray-300 rounded-lg p-4 w-full bg-[#171614] text-white" type="file" name="imageUrl"
     accept = "image/jpg, image/jpeg, image/png"> 
 
